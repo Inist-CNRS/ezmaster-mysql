@@ -35,7 +35,8 @@ RUN echo '{ \
 }' > /etc/ezmaster.json
 
 ENV MYSQL_ROOT_PASSWORD secret
-ENV MYSQL_USER mysql
+ENV MYSQL_DATABASE database
+ENV MYSQL_USER user 
 ENV MYSQL_PASSWORD password
 
 ENTRYPOINT [ "docker-entrypoint.overload.sh" ]

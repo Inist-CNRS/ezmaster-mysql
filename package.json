@@ -1,6 +1,6 @@
 {
   "name": "ezmaster-mysql",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "[Ezmasterization](https://github.com/Inist-CNRS/ezmaster) of MySQL database",
   "scripts": {
     "insertversion:readme": "sed -i \"s#\\(inistcnrs/ezmaster-mysql:\\)\\([\\.a-z0-9]\\+\\)#\\1${npm_package_version}#g\" README.md",

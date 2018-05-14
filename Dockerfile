@@ -34,7 +34,7 @@ RUN echo '{ \
   "dataPath": "/ezdata" \
 }' > /etc/ezmaster.json
 
-ENV MYSQL_ROOT_PASSWORD secret
+ENV MYSQL_RANDOM_ROOT_PASSWORD yes
 ENV MYSQL_DATABASE database
 ENV MYSQL_USER user 
 ENV MYSQL_PASSWORD password

@@ -19,6 +19,7 @@ COPY mysqld.cnf /etc/mysql/config/conf.d/
 # backup stuff
 RUN mkdir -p /ezdata/dump/
 COPY dump.periodically.sh /usr/local/bin/
+COPY apply.config.sh /usr/local/bin/
 
 # basic http server stuff
 RUN mkdir /www
@@ -34,10 +35,9 @@ RUN echo '{ \
   "dataPath": "/ezdata" \
 }' > /etc/ezmaster.json
 
-ENV MYSQL_RANDOM_ROOT_PASSWORD yes
-ENV MYSQL_DATABASE database
-ENV MYSQL_USER user 
-ENV MYSQL_PASSWORD password
+#ENV MYSQL_RANDOM_ROOT_PASSWORD yes
+RUN mkdir /run/secrets/ && pwgen -1 32 > /run/secrets/mysql-root
+ENV MYSQL_ROOT_PASSWORD_FILE /run/secrets/mysql-root
 
 ENTRYPOINT [ "docker-entrypoint.overload.sh" ]
 CMD [ "mysqld", "--default-authentication-plugin=mysql_native_password" ]

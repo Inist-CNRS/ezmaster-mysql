@@ -23,7 +23,7 @@ do
 	sleep 1
 done
 
-echo -n "Updating mysqld with the config file"
+echo -n "Looping over each databases and updating each passwords"
 while IFS=';' read -ra ITEM; do
       for i in "${ITEM[@]}"; do
           forEachDatabase $i

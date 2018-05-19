@@ -3,7 +3,7 @@
 # a mysqldump into /ezdata/dump folder
 
 
-ROOT_PASSWORD=`cat /run/secrets/mysql-root`
+ROOT_PASSWORD=$(cat $MYSQL_ROOT_PASSWORD_FILE)
 mysql=( mysqldump --protocol=socket -uroot -hlocalhost --socket=/var/run/mysqld/mysqld.sock --password="${ROOT_PASSWORD}" --all-databases )
 
 

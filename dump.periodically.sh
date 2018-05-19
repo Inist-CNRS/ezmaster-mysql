@@ -11,7 +11,7 @@ sleep 10
 while true
 do
   # loop until the database is ready to accept connections
-  echo -n "Waiting until mysqld is ready to run mysqldump."
+  echo -n "Waiting until mysqld is ready before running mysqldump."
   until nc -z 127.0.0.1 3306
   do
     echo -n "."

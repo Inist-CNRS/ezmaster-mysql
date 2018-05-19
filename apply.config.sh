@@ -16,7 +16,7 @@ echo -n "Changing password for ${2}."
 EOSQL
 }
 
-echo -n "Waiting until mysqld is ready to run mysqldump."
+echo -n "Waiting until mysqld is ready before applying passwords stuff."
 until nc -z 127.0.0.1 3306
 do
 	echo -n "."

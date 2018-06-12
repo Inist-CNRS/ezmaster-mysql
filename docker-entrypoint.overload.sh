@@ -1,5 +1,12 @@
 #!/bin/bash
 
+
+if [ ! -f "${MYSQL_ROOT_PASSWORD_FILE}" ]; then
+	DNAME=`dirname ${MYSQL_ROOT_PASSWORD_FILE}`
+	mkdir -p ${DNAME}
+	pwgen -1 32 > ${MYSQL_ROOT_PASSWORD_FILE}
+fi
+
 # inject config.json parameters to env
 # only if not already defined in env
 export DUMP_EACH_NBHOURS=${DUMP_EACH_NBHOURS:=$(jq -r -M .DUMP_EACH_NBHOURS /config.json | grep -v null)}
@@ -15,7 +22,7 @@ fi
 # backup/dump stuff
 dump.periodically.sh &
 
-# basic http server for displaing a basic informative html page for ezmaster 
+# basic http server for displaing a basic informative html page for ezmaster
 cd /www && python -m SimpleHTTPServer 8080 &
 
 # start mysql daemon

@@ -35,8 +35,7 @@ RUN echo '{ \
   "dataPath": "/ezdata" \
 }' > /etc/ezmaster.json
 
-#ENV MYSQL_RANDOM_ROOT_PASSWORD yes
-RUN mkdir /run/secrets/ && pwgen -1 32 > /run/secrets/mysql-root
+
 ENV MYSQL_ROOT_PASSWORD_FILE /run/secrets/mysql-root
 
 ENTRYPOINT [ "docker-entrypoint.overload.sh" ]

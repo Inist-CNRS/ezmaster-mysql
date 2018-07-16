@@ -32,7 +32,8 @@ RUN echo '{ \
   "httpPort": 8080, \
   "configPath": "/config.json", \
   "configType": "json", \
-  "dataPath": "/ezdata" \
+  "dataPath": "/ezdata", \
+  "technicalInstance": true \
 }' > /etc/ezmaster.json
 
 

@@ -25,5 +25,8 @@ dump.periodically.sh &
 # basic http server for displaing a basic informative html page for ezmaster
 cd /www && python -m SimpleHTTPServer 8080 &
 
+# to allow daemon to use temp directory
+chmod 1777 /tmp
+
 # start mysql daemon
 exec /usr/local/bin/docker-entrypoint.sh $@

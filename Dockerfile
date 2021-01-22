@@ -14,7 +14,7 @@ COPY docker-entrypoint.overload.sh /usr/local/bin/
 # mysql data folder dedicated to ezmaster
 # because it's not yet (8 nov 2017) possible to UNVOLUME /data/db and /data/configdb
 RUN mkdir -p /ezdata/db && chown -R mysql:mysql /ezdata/db
-COPY mysqld.cnf /etc/mysql/config/conf.d/
+COPY mysqld.cnf /etc/mysql/conf.d/
 
 # backup stuff
 RUN mkdir -p /ezdata/dump/
